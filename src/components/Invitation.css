@@ -1,0 +1,232 @@
+.invitation-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px;
+}
+
+/* ===================== FLOATING EMOJIS ===================== */
+.floating-emojis {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.floating-emoji {
+  position: absolute;
+  bottom: -60px;
+  animation: floatUp linear infinite;
+  opacity: 0.35;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.35;
+  }
+  90% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* ===================== CARD ===================== */
+.invitation-card {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 50px 44px 40px;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 80px rgba(255, 107, 107, 0.06);
+  animation: cardAppear 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes cardAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===================== SUSHI ICON ===================== */
+.sushi-icon {
+  font-size: 4rem;
+  margin-bottom: 12px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+/* ===================== TEXTS ===================== */
+.invitation-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #ff6b6b, #ffa07a, #ff6b6b);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 200% center;
+  }
+}
+
+.invitation-subtitle {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 300;
+  margin-bottom: 24px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.15),
+    transparent
+  );
+}
+
+.divider span {
+  padding: 0 16px;
+  font-size: 1.4rem;
+}
+
+.invitation-text {
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 8px;
+}
+
+.invitation-place {
+  font-size: 1.2rem;
+  color: #ffa07a;
+  margin-bottom: 6px;
+}
+
+.invitation-vibe {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 36px;
+}
+
+/* ===================== BUTTONS ===================== */
+.buttons-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 140px;
+  overflow: hidden;
+}
+
+.btn-yes {
+  padding: 14px 36px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-family: "Outfit", sans-serif;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 6px 24px rgba(238, 90, 36, 0.35);
+  z-index: 2;
+}
+
+.btn-yes:hover {
+  box-shadow: 0 8px 32px rgba(238, 90, 36, 0.5);
+  filter: brightness(1.08);
+}
+
+.btn-no {
+  padding: 14px 28px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: "Outfit", sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 520px) {
+  .invitation-card {
+    padding: 36px 24px 32px;
+    border-radius: 22px;
+  }
+
+  .invitation-title {
+    font-size: 1.75rem;
+  }
+
+  .invitation-text {
+    font-size: 1.15rem;
+  }
+
+  .buttons-container {
+    min-height: 160px;
+  }
+}
